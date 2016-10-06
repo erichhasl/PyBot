@@ -2,8 +2,6 @@
 
 #Hier stehen in einem Outline die main-functions eines Roboters
 
-
-
 class robot:
     robot_rotation = 0 #Wie Himmelsrichtungen: 1=N, 2=O, 3=S, 4=W
     robot_position = [0, 0] #Koordinatensystem mit x,y
@@ -65,8 +63,15 @@ class robot:
             y += 1
         elif rotation == 3:
             x += 1
-        if lookaAtField(x, y).type == opponent:
+        if lookAtField(x, y).type == opponent:
             damage()
         else:
             pass
-        
+
+#missing classes:
+class field:
+    
+#missing functions:
+screen.update()
+damage()
+lookAtField()
