@@ -28,13 +28,13 @@ class Robot():
             self.rotation == 0
         screen.update() #zeichnet den Screen neu
 
-    def turn_left(): #Roboter dreht sich nach links
+    def turn_left(self): #Roboter dreht sich nach links
         self.rotation -= 1 #siehe oben, Rechtskurve = +1 (von N nach O etc.)
         if self.rotation < 1:
             self.rotation==4
         screen.update() #zeichnet den Screen neu
 
-    def move_forward():
+    def move_forward(self):
         robot_rotation = self.get_robot_rotation()
         robot_position = self.get_robot_position()
         x = position[0]
@@ -62,7 +62,7 @@ class Robot():
         self.position = [x, y]
         screen.update()
 
-    def move_back(): #NEEDS CHECK IF THE RESULTING FIELD IS PASSABLE!
+    def move_back(self): #NEEDS CHECK IF THE RESULTING FIELD IS PASSABLE!
         rotation = self.get_robot_rotation()
         position = self.get_robot_position()
         x = position[0]
@@ -90,7 +90,7 @@ class Robot():
         self.position = [x, y]
         screen.update()
         
-    def attack():
+    def attack(self):
         rotation = self.get_robot_rotation()
         position = self.get_robot_position()
         x = position[0]
