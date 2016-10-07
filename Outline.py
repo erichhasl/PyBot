@@ -37,24 +37,24 @@ class Robot():
     def move_forward(self):
         robot_rotation = self.get_robot_rotation()
         robot_position = self.get_robot_position()
-        x = position[0]
-        y = position[1]
-        if rotation == 0:
+        x = robot_position[0]
+        y = robot_position[1]
+        if robot_rotation == 0:
             if lookAtField(x, y+1).passable == True:
                 y += 1
             else:
                 print("Hindernis im Weg, Roboter kann sich nicht bewegen")
-        elif rotation == 1:
+        elif robot_rotation == 1:
             if lookAtField(x+1, y).passable == True:
                 x += 1
             else:
                 print("Hindernis im Weg, Roboter kann sich nicht bewegen")
-        elif rotation == 2:
+        elif robot_rotation == 2:
             if lookAtField(x, y-1).passable == True:
                 y -= 1
             else:
                 print("Hindernis im Weg, Roboter kann sich nicht bewegen")
-        elif rotation == 3:
+        elif robot_rotation == 3:
             if lookAtField(x-1, y).passable == True:
                 x -= 1
             else:
@@ -63,26 +63,26 @@ class Robot():
         screen.update()
 
     def move_back(self): #NEEDS CHECK IF THE RESULTING FIELD IS PASSABLE!
-        rotation = self.get_robot_rotation()
-        position = self.get_robot_position()
-        x = position[0]
-        y = position[1]
-        if rotation == 0:
+        robot_rotation = self.get_robot_rotation()
+        robot_position = self.get_robot_position()
+        x = robot_position[0]
+        y = robot_position[1]
+        if robot_rotation == 0:
             if lookAtField(x, y-1).passable == True:
                 y -= 1
             else:
                 print("Hindernis im Weg, Roboter kann sich nicht bewegen")
-        elif rotation == 1:
+        elif robot_rotation == 1:
             if lookAtField(x-1, y).passable == True:
                 x -= 1
             else:
                 print("Hindernis im Weg, Roboter kann sich nicht bewegen")
-        elif rotation == 2:
+        elif robot_rotation == 2:
             if lookAtField(x, y+1).passable == True:
                 y += 1
             else:
                 print("Hindernis im Weg, Roboter kann sich nicht bewegen")
-        elif rotation == 3:
+        elif robot_rotation == 3:
             if lookAtField(x+1, y).passable == True:
                 x += 1
             else:
@@ -91,17 +91,17 @@ class Robot():
         screen.update()
         
     def attack(self):
-        rotation = self.get_robot_rotation()
-        position = self.get_robot_position()
-        x = position[0]
-        y = position[1]
-        if rotation == 0:
+        robot_rotation = self.get_robot_rotation()
+        robot_position = self.get_robot_position()
+        x = robot_position[0]
+        y = robot_position[1]
+        if robot_rotation == 0:
             y -= 1
-        elif rotation == 1:
+        elif robot_rotation == 1:
             x -= 1
-        elif rotation == 2:
+        elif robot_rotation == 2:
             y += 1
-        elif rotation == 3:
+        elif robot_rotation == 3:
             x += 1
         if lookAtField(x, y).occupied == opponent: #need to define opponent
             damage()
