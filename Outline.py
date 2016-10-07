@@ -83,7 +83,7 @@ class Robot():
             else:
                 print("Hindernis im Weg, Roboter kann sich nicht bewegen")
         elif rotation == 3:
-             if lookAtField(x+1, y).passable == True:
+            if lookAtField(x+1, y).passable == True:
                 x += 1
             else:
                 print("Hindernis im Weg, Roboter kann sich nicht bewegen")
