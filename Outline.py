@@ -25,13 +25,13 @@ class Robot():
     def turn_right(self): #Roboter dreht sich nach rechts
         self.rotation += 1 #siehe oben, Rechtskurve = +1 (von N nach O etc.)
         if self.rotation > 4: 
-            self.rotation == 0
+            self.rotation -= 4
         screen.update() #zeichnet den Screen neu
 
     def turn_left(self): #Roboter dreht sich nach links
         self.rotation -= 1 #siehe oben, Rechtskurve = +1 (von N nach O etc.)
         if self.rotation < 1:
-            self.rotation==4
+            self.rotation += 4
         screen.update() #zeichnet den Screen neu
 
     def move_forward(self):
