@@ -14,31 +14,31 @@ class Robot():
     rotation = 3 #Wie Himmelsrichtungen: 1=N, 2=O, 3=S, 4=W
     position = [0, 0] #Koordinatensystem mit x,y
     
-    def get_robot_position():
-        robot_position = position #just be sure so that we are not changing important values
+    def get_robot_position(self):
+        robot_position = self.position #just be sure so that we are not changing important values
         return robot_position
     
-    def get_robot_rotation():
-        robot_rotation = rotation
+    def get_robot_rotation(self):
+        robot_rotation = self.rotation
         return robot_rotation
     
-    def turn_right(): #Roboter dreht sich nach rechts
-        rotation += 1 #siehe oben, Rechtskurve = +1 (von N nach O etc.)
-        if rotation > 4: 
-            rotation == 0
+    def turn_right(self): #Roboter dreht sich nach rechts
+        self.rotation += 1 #siehe oben, Rechtskurve = +1 (von N nach O etc.)
+        if self.rotation > 4: 
+            self.rotation == 0
         screen.update() #zeichnet den Screen neu
 
     def turn_left(): #Roboter dreht sich nach links
-        rotation -= 1 #siehe oben, Rechtskurve = +1 (von N nach O etc.)
-        if rotation < 1:
-            rotation==4
+        self.rotation -= 1 #siehe oben, Rechtskurve = +1 (von N nach O etc.)
+        if self.rotation < 1:
+            self.rotation==4
         screen.update() #zeichnet den Screen neu
 
     def move_forward():
-        rotation = self.get_robot_rotation()
-        position = self.get_robot_position()
+        robot_rotation = self.get_robot_rotation()
+        robot_position = self.get_robot_position()
         x = position[0]
-        y= position[1]
+        y = position[1]
         if rotation == 0:
             if lookAtField(x, y+1).passable == True:
                 y += 1
@@ -59,7 +59,7 @@ class Robot():
                 x -= 1
             else:
                 print("Hindernis im Weg, Roboter kann sich nicht bewegen")
-        robot_position = [x, y]
+        self.position = [x, y]
         screen.update()
 
     def move_back(): #NEEDS CHECK IF THE RESULTING FIELD IS PASSABLE!
@@ -87,7 +87,7 @@ class Robot():
                 x += 1
             else:
                 print("Hindernis im Weg, Roboter kann sich nicht bewegen")
-        robot_position = [x, y]
+        self.position = [x, y]
         screen.update()
         
     def attack():
@@ -128,13 +128,13 @@ def lookAtField(x, y):
     field = Field[x, y] #oder so ähnlich, siehe unten.
     #Wie machen wir das mit den Feldern? Wo wird die ganze Information abgespeichert?? In einer Liste, oder ist jedes Feld ein
     #Objekt mit den dazugehörigen x und y Werten?
-    def passable():
+    def passable(self):
         #if object can not be found (je nach Variante andere Syntax) or object can be found and is unpassable:
             return False
         #if object can be found and is passable:
             return True
     
-    def kind():
+    def kind(self):
         #if object can not be found (je nach Variante andere Syntax):
             return "wall"
         #if object can be found and is a normal field:
@@ -142,7 +142,7 @@ def lookAtField(x, y):
         #if object can be found and is a obstacle
             return "obstacle"
     
-    def occupied():
+    def occupied(self):
         #if red_robot occupies this field
             return "red_robot"
         #if blue/robot occupies this field
